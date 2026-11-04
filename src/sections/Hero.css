@@ -1,0 +1,30 @@
+.hero {
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(
+    100svh - var(--header-height) - env(safe-area-inset-top, 0px)
+  );
+  display: grid;
+  place-items: center;
+}
+
+.hero-inner {
+  text-align: center;
+}
+
+.hero-title {
+  max-width: 16ch;
+  margin-inline: auto;
+  font-size: var(--text-5xl);
+}
+
+.hero-note {
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+  .hero-note {
+    font-size: var(--text-base);
+  }
+}

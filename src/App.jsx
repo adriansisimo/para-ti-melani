@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import Hero from './sections/Hero'
 import Footer from './components/Footer'
 
 function App() {
@@ -6,13 +7,7 @@ function App() {
     <>
       <Header />
       <main>
-        <section id="inicio" className="section section--hero">
-          <div className="container">
-            <p className="eyebrow">12 de julio de 2023</p>
-            <h1>Llevo Amándote Desde</h1>
-            <p className="lead">"Contador..."</p>
-          </div>
-        </section>
+        <Hero />
 
       <section className="section section--alt" id="ella">
         <div className="container">
@@ -56,7 +51,7 @@ function App() {
           </div>
       </section>
       </main>
-    
+
       <Footer />
     </>
   )
