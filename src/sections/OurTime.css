@@ -1,0 +1,180 @@
+.carousel {
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+.carousel-card {
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-deep);
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 600ms var(--ease-out);
+  will-change: transform;
+}
+
+/* Se usa para saltar del clon al inicio sin que se vea el retroceso. */
+.carousel-track--instant {
+  transition: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+/* contain evita recortar caras o partes de las fotos y de los collages. */
+.carousel-slide img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background: var(--bg-deep);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.carousel-caption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-height: 6rem;
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.carousel-date {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.carousel-text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-radius: 50%;
+  background: rgb(20 13 24 / 0.45);
+  color: var(--color-white);
+  transform: translateY(-50%);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.carousel-arrow svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.carousel-arrow--prev {
+  left: var(--space-3);
+}
+
+.carousel-arrow--next {
+  right: var(--space-3);
+}
+
+.carousel-footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.carousel-count {
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-dot {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.carousel-dot::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+  transition:
+    width var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.carousel-dot[aria-current='true']::before {
+  width: 1.5rem;
+  background: var(--accent);
+}
+
+.carousel-pause {
+  justify-self: end;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  transition: background-color var(--transition-fast);
+}
+
+@media (hover: hover) {
+  .carousel-arrow:hover {
+    background: rgb(20 13 24 / 0.7);
+    transform: translateY(-50%) scale(1.06);
+  }
+
+  .carousel-dot:hover::before {
+    background: var(--accent);
+  }
+
+  .carousel-pause:hover {
+    background: rgb(116 69 138 / 0.12);
+  }
+}
+
+@media (min-width: 640px) {
+  .carousel-caption {
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .carousel-text {
+    font-size: var(--text-base);
+  }
+}
