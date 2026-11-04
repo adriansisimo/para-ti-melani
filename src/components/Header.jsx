@@ -3,9 +3,9 @@ import './Header.css'
 
 const links = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#ella', label: 'Ella' },
+  { href: '#ella', label: 'Melani' },
   { href: '#nosotros', label: 'Nosotros' },
-  { href: '#tiempo', label: 'Nuestro tiempo' },
+  { href: '#tiempo', label: 'Nuestro Tiempo' },
   { href: '#graduacion', label: 'Para ti' },
 ]
 

@@ -149,7 +149,9 @@ html {
   text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-height) + 1rem);
+  scroll-padding-top: calc(
+  var(--header-height) + env(safe-area-inset-top, 0px) + 1rem
+);
   scrollbar-color: var(--color-purple-300) var(--bg-page);
   scrollbar-width: thin;
 }
