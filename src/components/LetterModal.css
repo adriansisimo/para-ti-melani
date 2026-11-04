@@ -1,0 +1,103 @@
+.letter-modal {
+  width: min(calc(100% - 2rem), 42rem);
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: var(--radius-xl);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.letter-modal::backdrop {
+  background: rgb(20 13 24 / 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.letter-panel {
+  position: relative;
+  max-height: min(85svh, 52rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-10) var(--space-5) var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.letter-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-surface-alt);
+  color: var(--accent-strong);
+  transition: background-color var(--transition-fast);
+}
+
+.letter-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.letter-title {
+  margin-top: var(--space-1);
+  font-size: var(--text-3xl);
+}
+
+.letter-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.letter-body p {
+  font-size: var(--text-base);
+  line-height: var(--line-height-body);
+  color: var(--text-secondary);
+}
+
+.letter-signature {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--accent-strong);
+  text-align: right;
+}
+
+.letter-modal[open] .letter-panel {
+  animation: letter-in 240ms var(--ease-out);
+}
+
+@keyframes letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@media (hover: hover) {
+  .letter-close:hover {
+    background: var(--bg-surface-strong);
+  }
+}
+
+@media (min-width: 640px) {
+  .letter-panel {
+    padding: var(--space-12) var(--space-10) var(--space-10);
+  }
+
+  .letter-body p {
+    font-size: var(--text-lg);
+  }
+}
