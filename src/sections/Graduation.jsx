@@ -13,8 +13,10 @@ function Graduation() {
           <p className="eyebrow">Para ti</p>
           <h2>Y por último, sé que pronto te gradúas...</h2>
           <p className="lead">
+            Y que mejor momento para memorar tus grandes fortalezas, tus grandes virtudes, sueños y demás.
             Quiero dejarte cuatro cartas para que las abras cuando quieras.
             En cada una hay algo que quiero que recuerdes siempre.
+            Leelas sabiendo que están escritas cada una con muchísimo amor, con mi mayor orgullo hacia ti y mi admiración por la gran mujer que estás construyendo cada día.
           </p>
         </div>
 
