@@ -5,7 +5,7 @@ export const letters = [
     id: 'esfuerzo',
     number: '01',
     title: 'Tu esfuerzo',
-    teaser: 'Lo gran mujer que eres por llevar de manera impresionante cada situación de la vida.',
+    teaser: 'La gran mujer que eres por llevar de manera impresionante cada situación de la vida.',
     paragraphs: [
       'Mi amor, como te lo he dicho siempre, eres impresionante, valiente, fuerte y sobre todo admiro muchisísimo tu esfuerzo por cada día ser mejor, por cada día luchar por tus sueños y por cada día dar lo mejor de ti en todo lo que haces. Eres una mujer admirable y estoy muy orgulloso de ti.',
       'No quiero que pierdas esa gran esencia de luchar por lo tuyo, por siempre insistir y no quedarte con lo primero que obtienes, sino que siempre buscas lo mejor de todo en cada momento, eres luchadora y muy valiente, y eso es algo que me hace admirarte aún más. No dejes que nadie te haga sentir menos de lo que eres, porque eres una mujer increíble y mereces todo lo bueno que la vida tiene para ofrecerte.',

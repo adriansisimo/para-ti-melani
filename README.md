@@ -1,16 +1,63 @@
-# React + Vite
+# Para Melani
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Página web personal, hecha con amor, para Melani. Incluye un contador con el
+tiempo que llevamos juntos, una galería de fotos y cuatro cartas de graduación.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- Vite
+- CSS puro (un archivo por componente/sección)
 
-## React Compiler
+## Cómo correr el proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Scripts disponibles
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Comando | Qué hace |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo con recarga en caliente |
+| `npm run build` | Compila la versión de producción en `dist/` |
+| `npm run preview` | Sirve localmente la versión compilada |
+| `npm run lint` | Revisa el código con ESLint |
+| `npm run optimize-images` | Optimiza las fotos de `public/photos/` y regenera `og-image.jpg` y `apple-touch-icon.png` |
+
+## Dónde editar el contenido
+
+- **Cartas:** `src/data/letters.js`. Cada carta tiene `title`, `teaser`,
+  `paragraphs`, `closing` y la firma global `LETTER_SIGNATURE`.
+- **Fotos de la galería:** `src/data/memories.js`. Los archivos van en
+  `public/photos/`.
+- **Datos de la relación** (fecha de inicio, nombres): `src/data/relationship.js`.
+- **Estilos globales y variables de diseño:** `src/index.css`.
+
+## Fotos
+
+Las fotos se optimizan con `sharp` a un ancho máximo de 1200 px y calidad JPEG 82.
+Si agregas o reemplazas fotos en `public/photos/`, vuelve a ejecutar:
+
+```bash
+npm run optimize-images
+```
+
+El script también genera la imagen de vista previa `public/og-image.jpg` y el
+icono `public/apple-touch-icon.png`.
+
+## Publicación
+
+El proyecto está pensado para publicarse en Vercel:
+
+- **Framework Preset:** Vite
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
+
+Cada push a `main` actualiza el sitio automáticamente.
+
+---
+
+Proyecto personal. No está pensado para indexarse en buscadores
+(`noindex, nofollow`).

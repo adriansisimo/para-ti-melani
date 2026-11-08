@@ -9,12 +9,19 @@ function LetterModal({ letter, signature, onClose }) {
     const dialog = dialogRef.current
     if (!dialog) return
 
+    // Guardamos la tarjeta que abrió el modal para devolverle el foco al cerrar.
+    const trigger = document.activeElement
+
     dialog.showModal()
     document.body.classList.add('no-scroll')
 
     return () => {
       if (dialog.open) dialog.close()
       document.body.classList.remove('no-scroll')
+
+      if (trigger instanceof HTMLElement && trigger.isConnected) {
+        trigger.focus()
+      }
     }
   }, [])
 
@@ -61,6 +68,8 @@ function LetterModal({ letter, signature, onClose }) {
             <p key={`${letter.id}-${index}`}>{paragraph}</p>
           ))}
         </div>
+
+        {letter.closing && <p className="letter-closing">{letter.closing}</p>}
 
         <p className="letter-signature">{signature}</p>
       </article>

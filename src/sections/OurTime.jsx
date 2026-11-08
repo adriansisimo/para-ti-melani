@@ -2,19 +2,34 @@ import { useEffect, useRef, useState } from 'react'
 import { memories } from '../data/memories'
 import './OurTime.css'
 
-const AUTOPLAY_MS = 2500
+const AUTOPLAY_MS = 5500
 const SWIPE_THRESHOLD = 40
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
 
 // Si el usuario pidió menos movimiento en su sistema, no avanzamos solo.
-const prefersReducedMotion = window.matchMedia(
-  '(prefers-reduced-motion: reduce)',
-).matches
+// Escuchamos cambios para respetarlo aunque la página ya esté abierta.
+function usePrefersReducedMotion() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
+    () => window.matchMedia(REDUCED_MOTION_QUERY).matches,
+  )
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY)
+    const handleChange = (event) => setPrefersReducedMotion(event.matches)
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  return prefersReducedMotion
+}
 
 function OurTime() {
   const [index, setIndex] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const [instant, setInstant] = useState(false)
+  const prefersReducedMotion = usePrefersReducedMotion()
   const dragStart = useRef(null)
 
   const total = memories.length
@@ -58,7 +73,7 @@ function OurTime() {
     }, AUTOPLAY_MS)
 
     return () => clearTimeout(timeoutId)
-  }, [index, isHovering, isPaused, total])
+  }, [index, isHovering, isPaused, prefersReducedMotion, total])
 
   // Al llegar al clon, saltamos al inicio sin animación.
   const handleTransitionEnd = (event) => {
