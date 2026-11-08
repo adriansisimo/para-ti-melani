@@ -21,6 +21,6 @@ export const qualities = [
     id: 'alegria',
     number: '04',
     title: 'Tu alegría',
-    text: 'Contigo hasta los días normales tienen algo especial. Tu risa es uno de mis sonidos favoritos y que sea yo quien la provoque siempre me llenará de felicidad a mi también. Me encanta cómo tu alegría es contagiosa y cómo siempre logras que los demás se sientan bien a tu alrededor.',
+    text: 'Contigo hasta los días normales tienen algo especial. Tu risa es uno de mis sonidos favoritos y que sea yo quien la provoque siempre me llenará de felicidad a mí también. Me encanta cómo tu alegría es contagiosa y cómo siempre logras que los demás se sientan bien a tu alrededor.',
   },
 ]

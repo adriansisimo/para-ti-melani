@@ -3,6 +3,8 @@
 Página web personal, hecha con amor, para Melani. Incluye un contador con el
 tiempo que llevamos juntos, una galería de fotos y cuatro cartas de graduación.
 
+Sitio publicado: <https://para-ti-melani.vercel.app/>
+
 ## Stack
 
 - React 19

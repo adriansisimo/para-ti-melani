@@ -39,6 +39,13 @@ function OurTime() {
   const slides = [...memories, memories[0]]
 
   const next = () => {
+    // Si estamos en el clon del final, saltamos al inicio sin animación.
+    if (index >= total) {
+      setInstant(true)
+      setIndex(0)
+      return
+    }
+
     setIndex((current) => Math.min(current + 1, total))
   }
 

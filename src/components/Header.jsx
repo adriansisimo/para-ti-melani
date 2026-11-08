@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Header.css'
 
 const links = [
@@ -11,9 +11,14 @@ const links = [
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const toggleRef = useRef(null)
 
   useEffect(() => {
     if (!menuOpen) return
+
+    const main = document.querySelector('main')
+    const footer = document.querySelector('.site-footer')
+    const toggle = toggleRef.current
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
@@ -23,10 +28,17 @@ function Header() {
 
     document.addEventListener('keydown', handleKeyDown)
     document.body.classList.add('no-scroll')
+    // Mientras el menú cubre la pantalla, el contenido de atrás no debe recibir foco.
+    main?.setAttribute('inert', '')
+    footer?.setAttribute('inert', '')
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.classList.remove('no-scroll')
+      main?.removeAttribute('inert')
+      footer?.removeAttribute('inert')
+      // Al cerrar, el foco vuelve al botón que abrió el menú.
+      toggle?.focus()
     }
   }, [menuOpen])
 
@@ -67,6 +79,7 @@ function Header() {
 
         <button
           type="button"
+          ref={toggleRef}
           className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}

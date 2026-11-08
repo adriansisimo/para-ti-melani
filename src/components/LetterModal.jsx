@@ -56,7 +56,11 @@ function LetterModal({ letter, signature, onClose }) {
         </svg>
       </button>
 
-      <article className="letter-panel">
+      <article
+        className="letter-panel"
+        tabIndex={0}
+        aria-labelledby={`letter-title-${letter.id}`}
+      >
         <p className="eyebrow">Carta {letter.number}</p>
 
         <h2 className="letter-title" id={`letter-title-${letter.id}`}>
